@@ -40,6 +40,7 @@ public class ApiArchitectureMain {
 		request.setMethod(HttpMethod.GET);
 		request.setPath("votes");
 		request.clearQueryParams();
+		request.setBody("");
 		this.request();
 		request.setPath("themes");
 		this.request();

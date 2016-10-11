@@ -21,4 +21,5 @@ public class VoteResource {
 	public VoteListWrapper voteList() {
 		return new VoteController().voteList();
 	}
+
 }
