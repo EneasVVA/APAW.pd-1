@@ -7,7 +7,7 @@ import es.upm.miw.apiArchitectureTheme.wrappers.VoteListWrapper;
 
 public class VoteResource {
 
-	// POST **/votes?themeId=*&vote=*
+	// POST **/votes   body="themeId:vote"
 	public void createVote(int themeId, int vote) throws InvalidVoteException, NotFoundThemeIdException {
 		if (vote < 0 || vote > 10) {
 			throw new InvalidVoteException("" + vote);

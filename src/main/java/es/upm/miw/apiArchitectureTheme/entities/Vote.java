@@ -4,15 +4,15 @@ public class Vote {
 
     private int id;
 
-    private int vote;
+    private int value;
 
     private Theme theme;
 
     public Vote() {
     }
 
-    public Vote(int vote, Theme theme) {
-        this.vote = vote;
+    public Vote(int value, Theme theme) {
+        this.value = value;
         this.theme = theme;
     }
 
@@ -24,12 +24,17 @@ public class Vote {
 		this.id = id;
 	}
 
-	public int getVote() {
-        return vote;
+	public int getValue() {
+        return value;
     }
 
     public Theme getTheme() {
         return theme;
     }
+
+	@Override
+	public String toString() {
+		return "Vote [id=" + id + ", value=" + value + ", theme=" + theme + "]";
+	}
 
 }

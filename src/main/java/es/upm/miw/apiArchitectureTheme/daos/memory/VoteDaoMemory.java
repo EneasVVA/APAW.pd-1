@@ -24,12 +24,12 @@ public class VoteDaoMemory extends GenericMemoryDao<Vote> implements VoteDao {
 	}
 
 	@Override
-	public List<Integer> findByThemeId(int themeId) {
+	public List<Integer> findValueByThemeId(int themeId) {
 		List<Vote> votes = this.findAll();
 		List<Integer> votesValue = new ArrayList<>();
 		for (Vote vote : votes) {
 			if (vote.getTheme().getId() == themeId) {
-				votesValue.add(vote.getVote());
+				votesValue.add(vote.getValue());
 			}
 		}
 		return votesValue;

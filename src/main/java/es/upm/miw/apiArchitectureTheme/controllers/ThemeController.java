@@ -27,7 +27,7 @@ public class ThemeController {
 		if (DaoFactory.getFactory().getThemeDao().read(themeId) == null) {
 			return null;
 		}
-		List<Integer> voteValues = DaoFactory.getFactory().getVoteDao().findByThemeId(themeId);
+		List<Integer> voteValues = DaoFactory.getFactory().getVoteDao().findValueByThemeId(themeId);
 		double total = 0;
 		for (Integer value : voteValues) {
 			total += value;

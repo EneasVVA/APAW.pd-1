@@ -13,7 +13,7 @@ public class ThemeResource {
 		return new ThemeController().themeList();
 	}
 
-	// POST **/themes?themeName=*
+	// POST **/themes   body="themeName"
 	public void createTheme(String themeName) throws InvalidThemeFieldException {
 		this.validateField(themeName);
 		new ThemeController().createTheme(themeName);

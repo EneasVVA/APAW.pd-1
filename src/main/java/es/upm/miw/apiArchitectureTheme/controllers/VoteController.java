@@ -24,7 +24,7 @@ public class VoteController {
 		List<Vote> votes = DaoFactory.getFactory().getVoteDao().findAll();
 		VoteListWrapper voteListWrapper = new VoteListWrapper();
 		for (Vote vote : votes) {
-			voteListWrapper.addVoteWrapper(new VoteWrapper(vote.getTheme().getName(),vote.getVote()));
+			voteListWrapper.addVoteWrapper(new VoteWrapper(vote.getTheme().getName(),vote.getValue()));
 		}
 		return voteListWrapper;
 	}

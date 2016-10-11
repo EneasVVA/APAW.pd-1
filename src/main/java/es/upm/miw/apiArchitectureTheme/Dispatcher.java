@@ -21,7 +21,6 @@ public class Dispatcher {
 	public void doGet(HttpRequest request, HttpResponse response) {
 		// **/themes
 		if ("themes".equals(request.getPath())) {
-			// Injectar parámetros...
 			response.setBody(themeResource.themeList().toString());
 			// **/themes/{id}/overage
 		} else if ("themes".equals(request.paths()[0]) && "overage".equals(request.paths()[2])) {
@@ -40,7 +39,7 @@ public class Dispatcher {
 
 	public void doPost(HttpRequest request, HttpResponse response) {
 		switch (request.getPath()) {
-		// POST **/themes       body=themeName
+		// POST **/themes body="themeName"
 		case "themes":
 			// Injectar parámetros...
 			try {
@@ -50,7 +49,7 @@ public class Dispatcher {
 				this.responseError(response, e);
 			}
 			break;
-		// POST votes   body=themeId:vote
+		// POST votes body="themeId:vote"
 		case "votes":
 			String themeId = request.getBody().split(":")[0];
 			String vote = request.getBody().split(":")[1];

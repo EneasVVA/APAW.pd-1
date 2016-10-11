@@ -15,9 +15,9 @@ public class ApiArchitectureMain {
 
 	public void help() {
 		IO.getIO().println("GET **/themes");
-		IO.getIO().println("POST **/themes   body=themeName");
+		IO.getIO().println("POST **/themes   body=\"themeName\"");
 		IO.getIO().println("GET **/themes/{id}/overage");
-		IO.getIO().println("POST **/votes   body=themeId:vote");
+		IO.getIO().println("POST **/votes   body=\"themeId:vote\"");
 		IO.getIO().println("GET **/votes");
 	}
 
