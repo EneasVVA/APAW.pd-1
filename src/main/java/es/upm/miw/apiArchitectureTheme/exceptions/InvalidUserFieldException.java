@@ -5,7 +5,8 @@ public class InvalidUserFieldException extends Exception {
 	public interface ReasonCodes {
 	   String INVALID_EMAIL = "Formato de correo inválido.";
 	   String INICK_ALREADY_EXISTS = "El usuario ya existe.";
-	}
+        String NICK_MANDATORY = "El nick es obligatorio.";
+    }
 
 	public InvalidUserFieldException(String reasonCode) {
 		super(reasonCode);
