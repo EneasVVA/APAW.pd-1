@@ -2,12 +2,14 @@ package es.upm.miw.apiArchitectureTheme.daos.memory;
 
 import es.upm.miw.apiArchitectureTheme.daos.DaoFactory;
 import es.upm.miw.apiArchitectureTheme.daos.ThemeDao;
+import es.upm.miw.apiArchitectureTheme.daos.UserDao;
 import es.upm.miw.apiArchitectureTheme.daos.VoteDao;
 
 public class DaoFactoryMemory extends DaoFactory {
 
 	private ThemeDao themeDao;
 	private VoteDao voteDao;
+	private UserDao userDao;
 
 	public DaoFactoryMemory() {
 	}
@@ -26,6 +28,14 @@ public class DaoFactoryMemory extends DaoFactory {
 			voteDao = new VoteDaoMemory();
 		}
 		return voteDao;
+	}
+
+	@Override
+	public UserDao getUserDao() {
+		if (userDao == null) {
+			userDao = new UserDaoMemory();
+		}
+		return userDao;
 	}
 
 }

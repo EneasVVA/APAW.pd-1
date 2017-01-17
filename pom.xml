@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>${project.groupId}.${project.artifactId}</name>
+	<nick>${project.groupId}.${project.artifactId}</nick>
 
 	<properties>
 		<encoding>UTF-8</encoding>
@@ -29,7 +29,7 @@
 			<id>develop</id>
 			<activation>
 				<property>
-					<name>environment.type</name>
+					<nick>environment.type</nick>
 					<value>develop</value>
 				</property>
 			</activation>
@@ -42,7 +42,7 @@
 			<id>preproduction</id>
 			<activation>
 				<property>
-					<name>environment.type</name>
+					<nick>environment.type</nick>
 					<value>preproduction</value>
 				</property>
 			</activation>
@@ -55,7 +55,7 @@
 			<id>production</id>
 			<activation>
 				<property>
-					<name>environment.type</name>
+					<nick>environment.type</nick>
 					<value>production</value>
 				</property>
 			</activation>

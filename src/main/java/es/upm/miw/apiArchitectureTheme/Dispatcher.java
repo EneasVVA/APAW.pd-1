@@ -1,6 +1,7 @@
 package es.upm.miw.apiArchitectureTheme;
 
 import es.upm.miw.apiArchitectureTheme.api.ThemeResource;
+import es.upm.miw.apiArchitectureTheme.api.UserResource;
 import es.upm.miw.apiArchitectureTheme.api.VoteResource;
 import es.upm.miw.apiArchitectureTheme.exceptions.InvalidRequestException;
 import es.upm.miw.apiArchitectureTheme.exceptions.InvalidThemeFieldException;
@@ -12,6 +13,7 @@ public class Dispatcher {
 
 	private ThemeResource themeResource = new ThemeResource();
 	private VoteResource voteResource = new VoteResource();
+	private UserResource userResource = new UserResource();
 
 	private void responseError(HttpResponse response, Exception e) {
 		response.setBody("{\"error\":\"" + e + "\"}");
@@ -20,12 +22,12 @@ public class Dispatcher {
 
 	public void doGet(HttpRequest request, HttpResponse response) {
 		// **/themes
-		if ("themes".equals(request.getPath())) {
-			response.setBody(themeResource.themeList().toString());
+		if ("users".equals(request.getPath())) {
+			response.setBody(userResource.userList().toString());
 			// **/themes/{id}/overage
-		} else if ("themes".equals(request.paths()[0]) && "overage".equals(request.paths()[2])) {
+		} else if ("users".equals(request.paths()[0]) && "sport".equals(request.paths()[2])) {
 			try {
-				response.setBody(themeResource.themeOverage(Integer.valueOf(request.paths()[1])).toString());
+				// response.setBody(userResource.getSport(Integer.valueOf(request.paths()[1])).toString());
 			} catch (Exception e) {
 				responseError(response, e);
 			}
@@ -55,6 +57,18 @@ public class Dispatcher {
 			String vote = request.getBody().split(":")[1];
 			try {
 				voteResource.createVote(Integer.valueOf(themeId), Integer.valueOf(vote));
+				response.setStatus(HttpStatus.CREATED);
+			} catch (Exception e) {
+				responseError(response, e);
+			}
+			break;
+		case "users":
+			try {
+				String[] params = request.getBody().split(":");
+				String nick = params[0];
+				String email = params[1];
+
+				userResource.createUser(nick, email);
 				response.setStatus(HttpStatus.CREATED);
 			} catch (Exception e) {
 				responseError(response, e);
