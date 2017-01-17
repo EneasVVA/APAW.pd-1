@@ -19,6 +19,7 @@ public class ApiArchitectureMain {
 		IO.getIO().println("GET **/themes/{id}/overage");
 		IO.getIO().println("POST **/votes   body=\"themeId:vote\"");
 		IO.getIO().println("GET **/votes");
+
 	}
 
 	public void demo() {
