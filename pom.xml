@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>APAW.pd</artifactId>
+	<artifactId>apaw.p2.sport</artifactId>
 	<groupId>es.upm.miw</groupId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<nick>${project.groupId}.${project.artifactId}</nick>
+	<name>${project.groupId}.${project.artifactId}</name>
 
 	<properties>
 		<encoding>UTF-8</encoding>
@@ -29,7 +29,7 @@
 			<id>develop</id>
 			<activation>
 				<property>
-					<nick>environment.type</nick>
+					<name>environment.type</name>
 					<value>develop</value>
 				</property>
 			</activation>
@@ -42,7 +42,7 @@
 			<id>preproduction</id>
 			<activation>
 				<property>
-					<nick>environment.type</nick>
+					<name>environment.type</name>
 					<value>preproduction</value>
 				</property>
 			</activation>
@@ -55,7 +55,7 @@
 			<id>production</id>
 			<activation>
 				<property>
-					<nick>environment.type</nick>
+					<name>environment.type</name>
 					<value>production</value>
 				</property>
 			</activation>
