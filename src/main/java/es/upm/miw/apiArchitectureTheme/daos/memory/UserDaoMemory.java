@@ -1,16 +1,16 @@
 package es.upm.miw.apiArchitectureTheme.daos.memory;
 
-import es.upm.miw.apiArchitectureTheme.daos.ThemeDao;
 import es.upm.miw.apiArchitectureTheme.daos.UserDao;
-import es.upm.miw.apiArchitectureTheme.entities.Theme;
 import es.upm.miw.apiArchitectureTheme.entities.User;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class UserDaoMemory extends GenericMemoryDao<User> implements UserDao {
 
+	private final Map<Integer, User> map;
 	public UserDaoMemory() {
-		this.setMap(new HashMap<Integer, User>());
+		this.setMap(map = new HashMap<Integer, User>());
 	}
 
 	@Override
@@ -24,4 +24,12 @@ public class UserDaoMemory extends GenericMemoryDao<User> implements UserDao {
 
 	}
 
+	@Override
+	public User findByNick(String nick) {
+		for(User user : map.values()) {
+			if(user.getNick().equals(nick))
+				return user;
+		}
+		return null;
+	}
 }

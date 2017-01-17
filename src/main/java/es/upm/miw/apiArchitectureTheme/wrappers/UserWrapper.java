@@ -5,14 +5,10 @@ public class UserWrapper {
 
 	private String nick;
 	private String email;
-	private int sport = 1;
-
-/*
-    private Sport sport;
-*/
+	private String sport;
 
 
-	public UserWrapper(int id, String nick, String email, int sport) {
+	public UserWrapper(int id, String nick, String email, String sport) {
 		this.id = id;
 		this.nick = nick;
 		this.email = email;

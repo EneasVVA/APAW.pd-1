@@ -1,18 +1,15 @@
 package es.upm.miw.apiArchitectureTheme.entities;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class User {
     private int id;
 
     private String nick;
     private String email;
-    private int sport = 1;
-
-/*
-    private Sport sport;
-*/
-
+    private List<Sport> sport = new ArrayList<Sport>();
 
     public User(String nick) {
         this.nick = nick;
@@ -26,7 +23,9 @@ public class User {
     }
 
 
-	public int getSport() {
+    public void addSport(Sport sport) { this.sport.add(sport); }
+
+	public List<Sport> getSport() {
 		return sport;
 	}
 
